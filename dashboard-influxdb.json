@@ -1,0 +1,972 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "hideControls": false,
+  "id": 2,
+  "links": [],
+  "refresh": "30s",
+  "rows": [
+    {
+      "collapse": false,
+      "height": "300px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "annotate": {
+            "enable": false
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "description": "* `num jrubies`: number of JRuby instances (constant)\n* `num free jrubies`: number of JRuby instances free\n* `average free jrubies`: average free JRubies over time\n* `average requested jrubies`: average requested JRubies over time",
+          "editable": true,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "max": null,
+            "min": 0,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null
+          },
+          "id": 1,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "loadingEditor": false,
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "resolution": 100,
+          "scale": 1,
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "num jrubies",
+              "measurement": "puppetlabs.localhost.localdomain.jruby.num-jrubies",
+              "refId": "A"
+            },
+            {
+              "alias": "num free jrubies",
+              "measurement": "puppetlabs.localhost.localdomain.jruby.num-free-jrubies",
+              "refId": "B"
+            },
+            {
+              "alias": "average free jrubies",
+              "measurement": "puppetlabs.localhost.localdomain.jruby.free-jrubies-histo.mean",
+              "refId": "C"
+            },
+            {
+              "alias": "average requested jrubies",
+              "measurement": "puppetlabs.localhost.localdomain.jruby.requested-jrubies-histo.mean",
+              "refId": "D"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "JRuby Usage",
+          "tooltip": {
+            "query_as_alias": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "yaxes": [
+            {
+              "format": "short",
+              "show": true
+            },
+            {
+              "format": "short",
+              "show": true
+            }
+          ],
+          "zerofill": true
+        },
+        {
+          "aliasColors": {},
+          "annotate": {
+            "enable": false
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "description": "* `borrow time`: average time a JRuby is borrowed for\n* `wait time`: average time Puppet Server spends waiting to borrow a JRuby to service a request\n* `lock held time`: average time the lock on the JRuby pool is held\n* `lock wait time`: average time Puppet Server spends waiting to acquire the lock",
+          "editable": true,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "max": null,
+            "min": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null
+          },
+          "id": 2,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "loadingEditor": false,
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "resolution": 100,
+          "scale": 1,
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "borrow time",
+              "measurement": "puppetlabs.localhost.localdomain.jruby.borrow-timer.mean",
+              "refId": "A"
+            },
+            {
+              "alias": "wait time",
+              "measurement": "puppetlabs.localhost.localdomain.jruby.wait-timer.mean",
+              "refId": "B"
+            },
+            {
+              "alias": "lock held time",
+              "measurement": "puppetlabs.localhost.localdomain.jruby.lock-held-timer.mean",
+              "refId": "C"
+            },
+            {
+              "alias": "lock wait time",
+              "measurement": "puppetlabs.localhost.localdomain.jruby.lock-wait-timer.mean",
+              "refId": "D"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "JRuby Pool Timers",
+          "tooltip": {
+            "query_as_alias": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "yaxes": [
+            {
+              "format": "ms",
+              "show": true
+            },
+            {
+              "format": "short",
+              "show": true
+            }
+          ],
+          "zerofill": true
+        },
+        {
+          "aliasColors": {},
+          "annotate": {
+            "enable": false
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "description": "Heap and non-heap memory used, number of cpus available.",
+          "editable": true,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "max": null,
+            "min": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null
+          },
+          "id": 3,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "loadingEditor": false,
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "resolution": 100,
+          "scale": 1,
+          "seriesOverrides": [
+            {
+              "alias": "num cpus",
+              "yaxis": 2
+            }
+          ],
+          "spaceLength": 10,
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "heap used",
+              "measurement": "puppetlabs.localhost.localdomain.memory.heap.used",
+              "refId": "A"
+            },
+            {
+              "alias": "non-heap used",
+              "measurement": "puppetlabs.localhost.localdomain.memory.non-heap.used",
+              "refId": "B"
+            },
+            {
+              "refId": "C",
+              "target": "alias(puppetlabs.localhost.localdomain.num-cpus, 'num cpus')"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "JVM metrics",
+          "tooltip": {
+            "query_as_alias": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": "Memory",
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": "CPUs",
+              "logBase": 1,
+              "min": "0",
+              "show": true
+            }
+          ],
+          "zerofill": true
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": "300px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "annotate": {
+            "enable": false
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "description": "Average request time by type - time the server spends serving each type of request, including time waiting to acquire a JRuby",
+          "editable": true,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "max": null,
+            "min": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null
+          },
+          "id": 4,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "loadingEditor": false,
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "resolution": 100,
+          "scale": 1,
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "catalog",
+              "measurement": "puppetlabs.localhost.localdomain.http.puppet-v3-catalog-.*.-requests.mean",
+              "refId": "A"
+            },
+            {
+              "alias": "report",
+              "measurement": "puppetlabs.localhost.localdomain.http.puppet-v3-report-.*.-requests.mean",
+              "refId": "B"
+            },
+            {
+              "alias": "node",
+              "measurement": "puppetlabs.localhost.localdomain.http.puppet-v3-node-.*.-requests.mean",
+              "refId": "C"
+            },
+            {
+              "alias": "file_metadatas",
+              "measurement": "puppetlabs.localhost.localdomain.http.puppet-v3-file_metadatas-.*.-requests.mean",
+              "refId": "D"
+            },
+            {
+              "alias": "file_metadata",
+              "measurement": "puppetlabs.localhost.localdomain.http.puppet-v3-file_metadata-.*.-requests.mean",
+              "refId": "E"
+            },
+            {
+              "alias": "file_content",
+              "measurement": "puppetlabs.localhost.localdomain.http.puppet-v3-file_content-.*.-requests.mean",
+              "refId": "F"
+            },
+            {
+              "alias": "other",
+              "measurement": "puppetlabs.localhost.localdomain.http.other-requests.mean",
+              "refId": "G"
+            },
+            {
+              "alias": "all",
+              "measurement": "puppetlabs.localhost.localdomain.http.total-requests.mean",
+              "refId": "H"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Request Durations",
+          "tooltip": {
+            "query_as_alias": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "yaxes": [
+            {
+              "format": "ms",
+              "show": true
+            },
+            {
+              "format": "short",
+              "show": true
+            }
+          ],
+          "zerofill": true
+        },
+        {
+          "aliasColors": {
+            "create scope": "#BADFF4"
+          },
+          "annotate": {
+            "enable": false
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "description": "Time spent in different parts of handling a Catalog request\n\n* `compile`: time to compile catalogs.\n* `static_compile`: time to do a static compile of catalogs.\n* `static compile postprocessing`: time to do postprocessing of static catalog, including inlining file metadata.\n* `function calls`: time spent calling functions (included in `compile` time)\n* `find_node`: time to get node object (not included in `compile` time)\n* `find_facts`: time to parse facts sent as part of catalog request (not included in `compile` time)",
+          "editable": true,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "max": null,
+            "min": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null
+          },
+          "id": 5,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "loadingEditor": false,
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "resolution": 100,
+          "scale": 1,
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "compile",
+              "measurement": "puppetlabs.localhost.localdomain.compiler.compile.mean",
+              "refId": "A"
+            },
+            {
+              "alias": "function calls",
+              "measurement": "puppetlabs.localhost.localdomain.functions.mean",
+              "refId": "B"
+            },
+            {
+              "alias": "find_node",
+              "measurement": "puppetlabs.localhost.localdomain.compiler.find_node.mean",
+              "refId": "C"
+            },
+            {
+              "alias": "static compile",
+              "measurement": "puppetlabs.localhost.localdomain.compiler.static_compile.mean",
+              "refId": "D"
+            },
+            {
+              "alias": "static compile postprocessing",
+              "measurement": "puppetlabs.localhost.localdomain.compiler.static_compile_postprocessing.mean",
+              "refId": "E"
+            },
+            {
+              "alias": "find_facts",
+              "measurement": "puppetlabs.localhost.localdomain.compiler.find_facts.mean",
+              "refId": "F"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Compilation",
+          "tooltip": {
+            "query_as_alias": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "yaxes": [
+            {
+              "format": "ms",
+              "show": true
+            },
+            {
+              "format": "short",
+              "show": true
+            }
+          ],
+          "zerofill": true
+        },
+        {
+          "aliasColors": {},
+          "annotate": {
+            "enable": false
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "description": "Time to make HTTP requests to other services\n\n* `PuppetDB: replace facts`: time to send a \"facts replace\" command to PuppetDB (part of a catalog compile)\n* `PuppetDB: replace catalog`: time to send a \"catalog replace\" command to PuppetDB (part of a catalog compile)\n* `PuppetDB: store report`: time to send a \"report store\" command to PuppetDB (part of handling a report request)\n* `PuppetDB: find facts`: time to get facts from PuppetDB (part of a node and catalog request, if the facts for the node are not cached)\n* `PuppetDB: search resources`: time to get exported resources from PuppetDB (part of a catalog compile if exported resources are used)\n*`PuppetDB: query`: time to execute a PuppetDB query (part of a catalog compile if the puppetdb query function is used)\n* `Http report processor`: time to submit a report to the http report url (if the http report processor is used)",
+          "editable": true,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "max": null,
+            "min": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null
+          },
+          "id": 6,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "loadingEditor": false,
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "resolution": 100,
+          "scale": 1,
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(puppetlabs.localhost.localdomain.http-client.experimental.with-metric-id.puppetdb.command.replace_facts.full-response.mean, 'PuppetDB: replace facts')"
+            },
+            {
+              "refId": "B",
+              "target": "alias(puppetlabs.localhost.localdomain.http-client.experimental.with-metric-id.puppetdb.command.replace_catalog.full-response.mean, 'PuppetDB: replace catalog')"
+            },
+            {
+              "refId": "C",
+              "target": "alias(puppetlabs.localhost.localdomain.http-client.experimental.with-metric-id.puppetdb.command.store_report.full-response.mean, 'PuppetDB: store report')"
+            },
+            {
+              "refId": "D",
+              "target": "alias(puppetlabs.localhost.localdomain.http-client.experimental.with-metric-id.puppetdb.facts.find.full-response.mean, 'PuppetDB: find facts')"
+            },
+            {
+              "refId": "E",
+              "target": "alias(puppetlabs.localhost.localdomain.http-client.experimental.with-metric-id.puppetdb.resource.search.full-response.mean, 'PuppetDB: search resources')"
+            },
+            {
+              "refId": "F",
+              "target": "alias(puppetlabs.localhost.localdomain.http-client.experimental.with-metric-id.puppetdb.query.full-response.mean, 'PuppetDB: query')"
+            },
+            {
+              "refId": "G",
+              "target": "alias(puppetlabs.localhost.localdomain.http-client.experimental.with-metric-id.puppet.report.http.full-response.mean, 'Http report processor')"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "External HTTP Communications",
+          "tooltip": {
+            "query_as_alias": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "yaxes": [
+            {
+              "format": "ms",
+              "show": true
+            },
+            {
+              "format": "short",
+              "show": true
+            }
+          ],
+          "zerofill": true
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": "300px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "annotate": {
+            "enable": false
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "description": "Percentage of requests handled of each type.",
+          "editable": true,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "max": null,
+            "min": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null
+          },
+          "id": 7,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "loadingEditor": false,
+          "nullPointMode": "connected",
+          "percentage": true,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "resolution": 100,
+          "scale": 1,
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(scale(puppetlabs.localhost.localdomain.http.puppet-v3-catalog-.*.-percentage,100),'catalog')"
+            },
+            {
+              "refId": "B",
+              "target": "alias(scale(puppetlabs.localhost.localdomain.http.puppet-v3-report-.*.-percentage,100),'report')"
+            },
+            {
+              "refId": "C",
+              "target": "alias(scale(puppetlabs.localhost.localdomain.http.puppet-v3-node-.*.-percentage,100),'node')"
+            },
+            {
+              "refId": "D",
+              "target": "alias(scale(puppetlabs.localhost.localdomain.http.puppet-v3-file_metadatas-.*.-percentage,100),'file_metadatas')"
+            },
+            {
+              "refId": "E",
+              "target": "alias(scale(puppetlabs.localhost.localdomain.http.puppet-v3-file_metadata-.*.-percentage,100),'file_metadata')"
+            },
+            {
+              "refId": "F",
+              "target": "alias(scale(puppetlabs.localhost.localdomain.http.puppet-v3-file_content-.*.-percentage,100),'file_content')"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Request Ratios",
+          "tooltip": {
+            "query_as_alias": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "yaxes": [
+            {
+              "format": "short",
+              "label": "Percentage of Requests",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": "",
+              "show": true
+            }
+          ],
+          "zerofill": true
+        },
+        {
+          "aliasColors": {},
+          "annotate": {
+            "enable": false
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "description": "Number of active requests and average number of active requests (over ~ 5 minutes).",
+          "editable": true,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "max": null,
+            "min": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null
+          },
+          "id": 8,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "loadingEditor": false,
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "resolution": 100,
+          "scale": 1,
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(puppetlabs.localhost.localdomain.http.active-requests.count,'active requests')"
+            },
+            {
+              "refId": "B",
+              "target": "alias(puppetlabs.localhost.localdomain.http.active-histo.mean, 'average number of active requests')"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Active Requests",
+          "tooltip": {
+            "query_as_alias": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "yaxes": [
+            {
+              "format": "short",
+              "show": true
+            },
+            {
+              "format": "short",
+              "show": true
+            }
+          ],
+          "zerofill": true
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Row",
+      "titleSize": "h6"
+    }
+  ],
+  "schemaVersion": 14,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "collapse": false,
+    "enable": true,
+    "notice": false,
+    "now": true,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "status": "Stable",
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ],
+    "type": "timepicker"
+  },
+  "timezone": "browser",
+  "title": "Puppet Server via InfluxDB",
+  "version": 0
+}

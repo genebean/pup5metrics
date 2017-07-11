@@ -13,13 +13,16 @@ Vagrant.configure('2') do |config|
   config.vm.provision 'shell', inline: <<-EOL
     puppet resource package rsync ensure=present
     puppet resource service puppetserver.service ensure=running enable=true
-    puppet module install puppet-grafana --version 3.0.0
+    puppet module install golja-influxdb --version 4.0.0
     puppet module install dwerder-graphite --version 7.1.0
     puppet apply /vagrant/setup.pp
     rsync -v /vagrant/metrics.conf /etc/puppetlabs/puppetserver/conf.d/metrics.conf
-    rsync -v /vagrant/grafana.db /usr/share/grafana/data/grafana.db
-    pkill grafana
-    su - grafana -c '/usr/share/grafana/bin/grafana-server -config=/usr/share/grafana/conf/custom.ini -homepath=/usr/share/grafana web &'
+    rsync -v /vagrant/grafana.db /var/lib/grafana/grafana.db
+    rsync -v /vagrant/sfdbconfig.conf /etc/sfdbconfig.conf
+    chown grafana:grafana /var/lib/grafana/grafana.db
+    systemctl restart grafana-server
+    curl -s https://raw.githubusercontent.com/signalfx/metricproxy/master/install.sh | sh
+    /etc/init.d/metricproxy start
     systemctl restart puppetserver.service
   EOL
 end
