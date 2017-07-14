@@ -22,7 +22,7 @@ Vagrant.configure('2') do |config|
     chown grafana:grafana /var/lib/grafana/grafana.db
     systemctl restart grafana-server
     curl -s https://raw.githubusercontent.com/signalfx/metricproxy/master/install.sh | sh
-    /etc/init.d/metricproxy start
+    puppet resource service metricproxy ensure=running enable=true
     systemctl restart puppetserver.service
   EOL
 end
